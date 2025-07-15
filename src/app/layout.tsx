@@ -4,8 +4,8 @@ import React from "react";
 import { switzer } from "@/app/fonts/fonts";
 
 export const metadata: Metadata = {
-    title: "T.Q.C",
-    description: "Framer Portfolio Template Clone",
+    title: "T.Q.C | Framer Portfolio Template Clone",
+    description: "A Framer Portfolio Template Clone built with Next.js and Tailwind CSS by Farias Maiquita for learning and portfolio enrichment purposes.",
 };
 
 export default function RootLayout({ children }: Readonly<{children: React.ReactNode }>) {
