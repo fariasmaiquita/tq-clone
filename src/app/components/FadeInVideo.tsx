@@ -26,15 +26,16 @@ export default function FadeInVideo({ className = '', showPulse = true, children
 
     useEffect(() => {
         if (videoRef.current) {
-            videoRef.current.addEventListener('loadeddata', handleLoadedData);
+            const video = videoRef.current;
+            video.addEventListener('loadeddata', handleLoadedData);
 
-            if (videoRef.current.readyState >= 2) {
+            if (video.readyState >= 2) {
                 handleLoadedData();
             }
 
             return () => {
-                if (videoRef.current) {
-                    videoRef.current.removeEventListener('loadeddata', handleLoadedData);
+                if (video) {
+                    video.removeEventListener('loadeddata', handleLoadedData);
                 }
             };
         }
