@@ -6,7 +6,7 @@ import {useState} from "react";
 import {useRouter} from "next/navigation";
 
 export default function HeroSection() {
-    const slides = [
+    const slides: { lgMediaSrc: string, smMediaSrc: string, mediaType: "image" | "video", url: string }[] = [
         { lgMediaSrc: "/img/tqc-home-hero-1-lg.webp", smMediaSrc: "/img/tqc-home-hero-1-sm.webp", mediaType: "image", url: "/slide1" },
         { lgMediaSrc: "/img/tqc-home-hero-2-lg.mp4", smMediaSrc: "/img/tqc-home-hero-2-sm.mp4", mediaType: "video", url: "/slide2" },
         { lgMediaSrc: "/img/tqc-home-hero-3-lg.webp", smMediaSrc: "/img/tqc-home-hero-3-sm.webp", mediaType: "image", url: "/slide3" }
