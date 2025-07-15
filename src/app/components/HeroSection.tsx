@@ -18,7 +18,7 @@ export default function HeroSection() {
     const getMedia = (mediaSrc: string, mediaType: "image" | "video", alt?: string) => {
         if (mediaType == "image") {
             return (
-                <FadeInImage src={mediaSrc} alt={alt} />
+                <FadeInImage src={mediaSrc} alt={alt || ""} />
             )
         }
 
