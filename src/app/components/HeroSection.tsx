@@ -36,10 +36,10 @@ export default function HeroSection() {
     }
 
     return (
-        <section className="bg-black/40 min-[810px]:h-dvh h-[92dvh] relative text-white">
+        <section className="bg-black/40 min-[810px]:h-dvh h-[92dvh] relative text-white overflow-hidden">
             {slides.map((slide, slideIndex) => {
                 return (
-                    <div key={slideIndex} className={`absolute inset-0 transition-opacity duration-500 ${currSlide == slideIndex ? "opacity-100 z-10" : "opacity-0"}`}>
+                    <div key={slideIndex} className={`absolute inset-0 transition-all duration-500 ${currSlide == slideIndex ? "opacity-100 z-10 scale-100" : "opacity-0 scale-110"}`}>
                         {getMedia(slide.lgMediaSrc, slide.mediaType, "")}
                     </div>
                 )
