@@ -27,7 +27,7 @@ export default function HeroSection() {
         )
     }
 
-    const slideClicked = (slideIndex) => {
+    const slideClicked = (slideIndex:number) => {
         if (currSlide == slideIndex) {
             router.push(slides[slideIndex].url);
         } else {
