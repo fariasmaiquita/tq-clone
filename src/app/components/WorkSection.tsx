@@ -5,7 +5,7 @@ import FadeInVideo from "@/app/components/FadeInVideo";
 
 export default function WorkSection() {
     const getMedia = (mediaType: "image" | "video", mediaSrc: string) => {
-        const className = "transform transition-transform duration-500 ease-in-out group-hover:scale-104";
+        const className = "transform transition-transform duration-1000 ease-out group-hover:scale-104";
         if (mediaType == "image") {
             return (
                 <FadeInImage src={mediaSrc} sizes="(min-width: 810) 33vw, 100vw" alt="" className={className} />
