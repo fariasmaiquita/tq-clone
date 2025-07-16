@@ -45,7 +45,7 @@ export default function HeroSection() {
                 )
             })}
             <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/0 from-70% to-black/15"></div>
-            <h2 className="absolute z-10 max-w-[582px] w-full min-[810px]:px-[20px] px-[15px] min-[810px]:top-1/2 top-[131px] transform min-[810px]:-translate-y-1/2 min-[1200px]:text-[60px] min-[810]:text-[48px] text-[38px] tracking-[-0.03em] leading-none font-semibold text-balance">
+            <h2 className="absolute z-10 max-w-[582px] w-full min-[810px]:px-[20px] px-[15px] min-[810px]:top-1/2 top-[131px] transform min-[810px]:-translate-y-1/2 min-[1200px]:text-[60px] min-[810]:text-[48px] text-[38px] tracking-[-0.03em] font-semibold text-balance">
                 Redefining brands for the modern world
             </h2>
             <div className="absolute z-10 min-[810]:pl-[20px] pl-[15px] left-0 bottom-[20px] w-full grid min-[810px]:grid-cols-3 max-[810px]:grid-flow-row gap-[10px] items-end">
