@@ -14,7 +14,7 @@ export default function AboutSection() {
                 </p>
                 <Link href="" className="mt-[20px] text-[14px] tracking-[-.03em] font-semibold leading-[18px] relative inline-block group">
                     About us
-                    <div className="absolute bottom-0 w-full border-b transform origin-top-right transition-transform duration-500 ease-in-out group-hover:scale-0"></div>
+                    <div className="absolute bottom-0 w-full border-b transform origin-top-right transition-transform duration-500 ease-in-out group-hover:scale-x-0"></div>
                 </Link>
             </div>
         </section>
