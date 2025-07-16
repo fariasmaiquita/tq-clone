@@ -39,7 +39,7 @@ export default function HeroSection() {
         <section className="bg-black/40 min-[1200px]:h-dvh max-[1200px]:min-[810px]:h-[calc(100dvh_-_58px)] max-[810px]:h-[86dvh] relative text-white overflow-hidden">
             {slides.map((slide, slideIndex) => {
                 return (
-                    <div key={slideIndex} className={`absolute inset-0 transition-all duration-500 ${currSlide == slideIndex ? "opacity-100 z-10 scale-100" : "opacity-0 scale-110"}`}>
+                    <div key={slideIndex} className={`absolute inset-0 transition-all ease-in-out duration-500 ${currSlide == slideIndex ? "opacity-100 z-10 scale-100" : "opacity-0 scale-110"}`}>
                         {getMedia(slide.lgMediaSrc, slide.mediaType, "")}
                     </div>
                 )
