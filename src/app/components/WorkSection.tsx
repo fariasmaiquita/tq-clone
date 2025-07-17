@@ -25,7 +25,7 @@ export default function WorkSection() {
                 </h2>
                 <Link href="" className="text-[14px] tracking-[-.03em] font-semibold leading-[18px] relative group">
                     View All
-                    <div className="absolute bottom-0 w-full border-b transform origin-top-left transition-transform duration-500 ease-in-out scale-x-0 group-hover:scale-x-100"></div>
+                    <div className="absolute bottom-0 w-full border-b origin-left transition-transform duration-500 ease-in-out scale-x-0 group-hover:scale-x-100"></div>
                 </Link>
             </div>
             <div className="min-[810px]:mt-[40px] mt-[20px] grid min-[810px]:grid-cols-3 grid-cols-1 gap-x-[20px] min-[810px]:gap-y-[40px] gap-y-[20px]">

@@ -64,7 +64,7 @@ export default function UpdatesSection() {
             <div className="text-right mt-[20px] px-[20px]">
                 <Link href="" className="inline-block text-[14px] tracking-[-.03em] font-semibold leading-[18px] relative group">
                     View All
-                    <div className="absolute bottom-0 w-full border-b transform origin-top-left transition-transform duration-500 ease-in-out scale-x-0 group-hover:scale-x-100"></div>
+                    <div className="absolute bottom-0 w-full border-b origin-left transition-transform duration-500 ease-in-out scale-x-0 group-hover:scale-x-100"></div>
                 </Link>
             </div>
 
