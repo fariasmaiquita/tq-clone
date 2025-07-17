@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import {useState} from "react";
+import {HeaderNavData} from "@/app/data/NavData";
 
 type PageHeaderProps = {
     initBgOpaque?: boolean
@@ -9,14 +10,6 @@ type PageHeaderProps = {
 
 export default function PageHeader({initBgOpaque = true}: PageHeaderProps) {
     const [navOpened, setNavOpened] = useState<boolean>(false);
-
-    const navLinks = [
-        { href: "", text: "Work" },
-        { href: "", text: "Studio" },
-        { href: "", text: "News" },
-        { href: "", text: "Careers" },
-        { href: "", text: "Contact" },
-    ];
 
     return (
         <header className="max-[1200px]:min-[810px]:h-[58px] max-[810px]:h-[49px]">
@@ -27,14 +20,14 @@ export default function PageHeader({initBgOpaque = true}: PageHeaderProps) {
                 <nav className={`min-[1200px]:col-start-3 max-[810px]:grid ${navOpened ? "grid-rows-[1fr]" : "grid-rows-[0fr]"} transition-all ease-in-out duration-500 max-[810px]:absolute top-full inset-x-0`}>
                     <div className="overflow-hidden">
                         <div className="max-[810px]:px-[15px] max-[810px]:pb-[100px] max-[810px]:flex flex-col justify-center max-[810px]:text-[60px] tracking-[-0.03em] max-[810px]:h-[calc(100dvh_-_49px)] max-[810px]:bg-white">
-                            {navLinks.map((link, linkIndex) => {
+                            {HeaderNavData.map((link, linkIndex) => {
                                 return (
                                     <span key={linkIndex}>
                                         <Link href={link.href} className="hover:opacity-40 transition-opacity">
                                             {link.text}
                                         </Link>
                                         <span className="max-[810px]:hidden">
-                                            {linkIndex < navLinks.length - 1 ? ", " : ""}
+                                            {linkIndex < HeaderNavData.length - 1 ? ", " : ""}
                                         </span>
                                     </span>
                                 )
