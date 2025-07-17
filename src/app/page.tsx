@@ -5,6 +5,7 @@ import WorkSection from "@/app/components/WorkSection";
 import CapabilitiesSection from "@/app/components/CapabilitiesSection";
 import UpdatesSection from "@/app/components/UpdatesSection";
 import CTASection from "@/app/components/CTASection";
+import PageFooter from "@/app/components/PageFooter";
 
 export default function Home() {
     return (
@@ -17,6 +18,7 @@ export default function Home() {
                 <CapabilitiesSection />
                 <UpdatesSection />
                 <CTASection />
+                <PageFooter />
             </main>
         </>
     );
