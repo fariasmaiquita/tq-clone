@@ -15,10 +15,10 @@ export default function HeroSection() {
     const [currSlide, setCurrSlide] = useState<number>(0);
     const router = useRouter();
 
-    const getMedia = (mediaSrc: string, mediaType: "image" | "video", alt?: string) => {
+    const getMedia = (mediaSrc: string, mediaType: "image" | "video", alt?: string, priority: boolean = false) => {
         if (mediaType == "image") {
             return (
-                <FadeInImage src={mediaSrc} alt={alt || ""} />
+                <FadeInImage src={mediaSrc} alt={alt || ""} priority={priority} />
             )
         }
 
@@ -40,7 +40,7 @@ export default function HeroSection() {
             {slides.map((slide, slideIndex) => {
                 return (
                     <div key={slideIndex} className={`absolute inset-0 transition-transform ease-out duration-1000 ${currSlide == slideIndex ? "opacity-100 z-10" : "opacity-0 scale-106"}`}>
-                        {getMedia(slide.lgMediaSrc, slide.mediaType, "")}
+                        {getMedia(slide.lgMediaSrc, slide.mediaType, "", slideIndex == 0)}
                     </div>
                 )
             })}
