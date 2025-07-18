@@ -7,7 +7,7 @@ export default function CapabilitiesSection() {
     const [currSlide, setCurrSlide] = useState<number>(0);
 
     return (
-        <section className="min-[810px]:h-[105dvh] relative flex flex-col min-[810px]:justify-center">
+        <section className="has-bg-img min-[810px]:h-[105dvh] relative flex flex-col min-[810px]:justify-center">
             <div className="bg-black/40 min-[810px]:absolute relative inset-0 max-[810px]:aspect-1219/1000 overflow-hidden">
                 {CapabilitiesData.map((capItem, itemIndex) => {
                     return (
