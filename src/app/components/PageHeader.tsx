@@ -1,19 +1,54 @@
 'use client';
 
 import Link from "next/link";
-import {useState} from "react";
-import {HeaderNavData} from "@/app/data/NavData";
+import {useState, useRef, useEffect} from "react";
+import { HeaderNavData } from "@/app/data/NavData";
 
-type PageHeaderProps = {
-    initBgOpaque?: boolean
-}
-
-export default function PageHeader({initBgOpaque = true}: PageHeaderProps) {
+export default function PageHeader() {
     const [navOpened, setNavOpened] = useState<boolean>(false);
+    const [isOverBgImage, setIsOverBgImage] = useState<boolean>(true);
+    const headerRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const header = headerRef.current;
+            if (!header) return;
+
+            const headerHeight = header.offsetHeight;
+            const headerTop = 0;
+            const headerBottom = headerTop + headerHeight;
+
+            const bgSections = document.querySelectorAll<HTMLElement>('.has-bg-img');
+
+            let overBgImage = false;
+
+            bgSections.forEach((section) => {
+                const rect = section.getBoundingClientRect();
+                const sectionTop = rect.top;
+                const sectionBottom = rect.bottom;
+
+                if (sectionTop < headerBottom && sectionBottom > headerTop) {
+                    overBgImage = true;
+                }
+            });
+
+            setIsOverBgImage(overBgImage);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll);
+        handleScroll();
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleScroll);
+        };
+    }, []);
 
     return (
         <header className="max-[1200px]:min-[810px]:h-[58px] max-[810px]:h-[49px]">
-            <div className={`fixed z-30 inset-x-0 min-[810px]:px-[20px] px-[15px] min-[810px]:h-[58px] h-[49px] grid items-center min-[1200px]:grid-cols-3 grid-cols-2 gap-[20px] font-semibold min-[810px]:text-[18px] text-[14px] tracking-[-0.03em] ${initBgOpaque ? "min-[1200px]:bg-white" : "min-[1200px]:text-white"} max-[1200px]:bg-white`}>
+            <div ref={headerRef} className={`isolate fixed z-30 inset-x-0 min-[810px]:px-[20px] px-[15px] min-[810px]:h-[58px] h-[49px] grid items-center min-[1200px]:grid-cols-3 grid-cols-2 gap-[20px] font-semibold min-[810px]:text-[18px] text-[14px] tracking-[-0.03em] max-[1200px]:bg-white ${isOverBgImage ? "min-[1200px]:text-white" : ""}`}>
+                <div className={`bg-white fixed -z-10 inset-x-0 h-[58px] transition-transform ease-in-out duration-500 ${isOverBgImage ? "min-[1200px]:-translate-y-full" : ""} max-[1200px]:-translate-y-full`}></div>
                 <div className="">
                     <Link href="/" className="hover:opacity-40 transition-opacity">T.Q.C</Link>
                 </div>
@@ -35,7 +70,7 @@ export default function PageHeader({initBgOpaque = true}: PageHeaderProps) {
                         </div>
                     </div>
                 </nav>
-                <button onClick={() => setNavOpened(!navOpened)} className="justify-self-end cursor-pointer min-[810px]:hidden grid overflow-hidden">
+                <button onClick={() => setNavOpened(!navOpened)} className="relative justify-self-end cursor-pointer min-[810px]:hidden grid overflow-hidden">
                     <span className={`col-start-1 row-start-1 transform transition-transform ease-in-out duration-500 ${navOpened ? "-translate-y-full" : "none"}`}>
                         Menu
                     </span>
