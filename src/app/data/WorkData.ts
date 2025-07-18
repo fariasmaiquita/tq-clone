@@ -1,3 +1,16 @@
+type HeroWorkDataProps = {
+    lgMediaSrc: string,
+    smMediaSrc: string,
+    mediaType: "image" | "video",
+    url: string
+}[];
+
+export const HeroWorkData:HeroWorkDataProps = [
+    { lgMediaSrc: "/img/work/tqc-work-09-1440w.avif", smMediaSrc: "/img/work/tqc-work-09-512w.avif", mediaType: "image", url: "/work/9" },
+    { lgMediaSrc: "/img/work/tqc-work-03-1920w.mp4", smMediaSrc: "/img/work/tqc-work-03-800w.mp4", mediaType: "video", url: "/work/3" },
+    { lgMediaSrc: "/img/work/tqc-work-08-1500w.avif", smMediaSrc: "/img/work/tqc-work-08-512w.avif", mediaType: "image", url: "/work/8" }
+];
+
 type WorkDataProps = {
     title: string,
     description: string,
