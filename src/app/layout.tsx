@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
 import { switzer } from "@/app/fonts/fonts";
+import PageFooter from "@/app/components/PageFooter";
+import PageHeader from "@/app/components/PageHeader";
 
 export const metadata: Metadata = {
     title: "T.Q.C | Framer Portfolio Template Clone",
@@ -12,7 +14,9 @@ export default function RootLayout({ children }: Readonly<{children: React.React
     return (
         <html lang="en">
             <body className={`leading-none ${switzer.className}`}>
+                <PageHeader />
                 {children}
+                <PageFooter />
             </body>
         </html>
     );
