@@ -2,23 +2,18 @@
 
 import FadeInImage from "@/app/components/FadeInImage";
 import FadeInVideo from "@/app/components/FadeInVideo";
-import {useState} from "react";
-import {useRouter} from "next/navigation";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { HeroWorkData } from "@/app/data/WorkData";
 
 export default function HeroSection() {
-    const slides: { lgMediaSrc: string, smMediaSrc: string, mediaType: "image" | "video", url: string }[] = [
-        { lgMediaSrc: "/img/tqc-home-hero-1-lg.webp", smMediaSrc: "/img/tqc-home-hero-1-sm.webp", mediaType: "image", url: "/slide1" },
-        { lgMediaSrc: "/img/tqc-home-hero-2-lg.mp4", smMediaSrc: "/img/tqc-home-hero-2-sm.mp4", mediaType: "video", url: "/slide2" },
-        { lgMediaSrc: "/img/tqc-home-hero-3-lg.webp", smMediaSrc: "/img/tqc-home-hero-3-sm.webp", mediaType: "image", url: "/slide3" }
-    ];
-
     const [currSlide, setCurrSlide] = useState<number>(0);
     const router = useRouter();
 
-    const getMedia = (mediaSrc: string, mediaType: "image" | "video", alt?: string, priority: boolean = false) => {
+    const getMedia = (mediaSrc: string, mediaType: "image" | "video", alt: string = "", priority: boolean = false, sizes:string = "") => {
         if (mediaType == "image") {
             return (
-                <FadeInImage src={mediaSrc} alt={alt || ""} priority={priority} />
+                <FadeInImage src={mediaSrc} alt={alt} priority={priority} sizes={sizes} />
             )
         }
 
@@ -29,7 +24,7 @@ export default function HeroSection() {
 
     const slideClicked = (slideIndex:number) => {
         if (currSlide == slideIndex) {
-            router.push(slides[slideIndex].url);
+            router.push(HeroWorkData[slideIndex].url);
         } else {
             setCurrSlide(slideIndex);
         }
@@ -37,10 +32,10 @@ export default function HeroSection() {
 
     return (
         <section className="has-bg-img bg-black/40 min-[1200px]:h-dvh max-[1200px]:min-[810px]:h-[calc(100dvh_-_58px)] max-[810px]:h-[86dvh] relative text-white overflow-hidden">
-            {slides.map((slide, slideIndex) => {
+            {HeroWorkData.map((slide, slideIndex) => {
                 return (
                     <div key={slideIndex} className={`absolute inset-0 transition-transform ease-out duration-1000 ${currSlide == slideIndex ? "opacity-100 z-10" : "opacity-0 scale-106"}`}>
-                        {getMedia(slide.lgMediaSrc, slide.mediaType, "", slideIndex == 0)}
+                        {getMedia(slide.lgMediaSrc, slide.mediaType, "", slideIndex == 0, "100vw")}
                     </div>
                 )
             })}
@@ -50,16 +45,16 @@ export default function HeroSection() {
             </h2>
             <div className="absolute z-10 min-[810px]:pl-[20px] pl-[15px] left-0 bottom-[20px] w-full grid min-[810px]:grid-cols-3 max-[810px]:grid-flow-row gap-[10px] items-end">
                 <div className="flex gap-[10px] max-[810px]:flex-col">
-                    {slides.map((slide, slideIndex) => {
+                    {HeroWorkData.map((slide, slideIndex) => {
                         return (
                             <button key={slideIndex} onMouseEnter={() => setCurrSlide(slideIndex)} onClick={() => slideClicked(slideIndex)} className="min-[810px]:w-[120px] w-[calc(171_*_100%_/_794)] aspect-120/85 relative rounded-[5px] overflow-hidden cursor-pointer transition-opacity duration-500 hover:opacity-40">
-                                {getMedia(slide.smMediaSrc, slide.mediaType, "")}
+                                {getMedia(slide.smMediaSrc, slide.mediaType, "", false, "170px")}
                             </button>
                         )
                     })}
                 </div>
                 <div className="min-[810px]:col-start-3 text-[14px] tracking-[-.03em] font-semibold">
-                    {`0${currSlide + 1}/0${slides.length}`}
+                    {`0${currSlide + 1}/0${HeroWorkData.length}`}
                 </div>
             </div>
 
