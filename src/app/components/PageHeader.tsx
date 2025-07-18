@@ -70,7 +70,7 @@ export default function PageHeader() {
 
     return (
         <header className="max-[1200px]:min-[810px]:h-[58px] max-[810px]:h-[49px]">
-            <div ref={headerRef} className={`isolate fixed z-30 inset-x-0 top-0 min-[810px]:px-[20px] px-[15px] min-[810px]:h-[58px] h-[49px] grid items-center min-[1200px]:grid-cols-3 grid-cols-2 gap-[20px] font-semibold min-[810px]:text-[18px] text-[14px] tracking-[-0.03em] max-[1200px]:bg-white ${isOverBgImage ? "min-[1200px]:text-white" : ""}`}>
+            <div ref={headerRef} className={`animate-page-header isolate fixed z-30 inset-x-0 top-0 min-[810px]:px-[20px] px-[15px] min-[810px]:h-[58px] h-[49px] grid items-center min-[1200px]:grid-cols-3 grid-cols-2 gap-[20px] font-semibold min-[810px]:text-[18px] text-[14px] tracking-[-0.03em] max-[1200px]:bg-white ${isOverBgImage ? "min-[1200px]:text-white" : ""}`}>
                 <div className={`bg-white fixed -z-10 inset-x-0 h-[58px] transition-transform ease-in-out duration-500 ${isOverBgImage ? "min-[1200px]:-translate-y-full" : ""} max-[1200px]:-translate-y-full`}></div>
                 <div className="">
                     <Link href="/" className="hover:opacity-40 transition-opacity">T.Q.C</Link>

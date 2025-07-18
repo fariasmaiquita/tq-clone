@@ -19,7 +19,6 @@ export default function RootLayout({ children }: Readonly<{children: React.React
             <body className={`leading-none ${switzer.className}`}>
                 <PageHeader />
                 {children}
-                <PageFooter />
             </body>
         </html>
     );
