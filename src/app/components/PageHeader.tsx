@@ -8,6 +8,29 @@ export default function PageHeader() {
     const [navOpened, setNavOpened] = useState<boolean>(false);
     const [isOverBgImage, setIsOverBgImage] = useState<boolean>(true);
     const headerRef = useRef<HTMLDivElement | null>(null);
+    const scrollYRef = useRef<number>(0);
+
+    useEffect(() => {
+        const body = document.body;
+
+        if (navOpened) {
+            scrollYRef.current = window.scrollY;
+            body.style.position = 'fixed';
+            body.style.top = `-${scrollYRef.current}px`;
+            body.style.width = '100%';
+        } else {
+            body.style.position = '';
+            body.style.top = '';
+            body.style.width = '';
+            window.scrollTo(0, scrollYRef.current);
+        }
+
+        return () => {
+            body.style.position = '';
+            body.style.top = '';
+            body.style.width = '';
+        };
+    }, [navOpened]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -47,7 +70,7 @@ export default function PageHeader() {
 
     return (
         <header className="max-[1200px]:min-[810px]:h-[58px] max-[810px]:h-[49px]">
-            <div ref={headerRef} className={`isolate fixed z-30 inset-x-0 min-[810px]:px-[20px] px-[15px] min-[810px]:h-[58px] h-[49px] grid items-center min-[1200px]:grid-cols-3 grid-cols-2 gap-[20px] font-semibold min-[810px]:text-[18px] text-[14px] tracking-[-0.03em] max-[1200px]:bg-white ${isOverBgImage ? "min-[1200px]:text-white" : ""}`}>
+            <div ref={headerRef} className={`isolate fixed z-30 inset-x-0 top-0 min-[810px]:px-[20px] px-[15px] min-[810px]:h-[58px] h-[49px] grid items-center min-[1200px]:grid-cols-3 grid-cols-2 gap-[20px] font-semibold min-[810px]:text-[18px] text-[14px] tracking-[-0.03em] max-[1200px]:bg-white ${isOverBgImage ? "min-[1200px]:text-white" : ""}`}>
                 <div className={`bg-white fixed -z-10 inset-x-0 h-[58px] transition-transform ease-in-out duration-500 ${isOverBgImage ? "min-[1200px]:-translate-y-full" : ""} max-[1200px]:-translate-y-full`}></div>
                 <div className="">
                     <Link href="/" className="hover:opacity-40 transition-opacity">T.Q.C</Link>
@@ -70,7 +93,12 @@ export default function PageHeader() {
                         </div>
                     </div>
                 </nav>
-                <button onClick={() => setNavOpened(!navOpened)} className="relative justify-self-end cursor-pointer min-[810px]:hidden grid overflow-hidden">
+                <button onClick={() => {
+                    if (!navOpened) {
+                        scrollYRef.current = window.scrollY;
+                    }
+                    setNavOpened(!navOpened);
+                }} className="relative justify-self-end cursor-pointer min-[810px]:hidden grid overflow-hidden">
                     <span className={`col-start-1 row-start-1 transform transition-transform ease-in-out duration-500 ${navOpened ? "-translate-y-full" : "none"}`}>
                         Menu
                     </span>
