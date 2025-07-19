@@ -28,7 +28,13 @@ export default function CloneNotice() {
         }
     };
 
+    const handleShowClick = () => {
+        setNoticeDismissed(false);
+        setNoticeHidden(false);
+    }
+
     useEffect(() => {
+        const cloneNoticeBtn = document.querySelector(".clone-notice-btn") as HTMLButtonElement;
         const hasCloneCookie = () => {
             return document.cookie.split(';').some(item => item.trim().startsWith(`${cookieCloneKey}=`));
         }
@@ -38,6 +44,12 @@ export default function CloneNotice() {
         if (!hasCloneCookie()) {
             setNoticeDismissed(false);
             setNoticeHidden(false);
+        }
+
+        cloneNoticeBtn?.addEventListener("click", handleShowClick);
+
+        return () => {
+            cloneNoticeBtn?.removeEventListener("click", handleShowClick);
         }
     }, []);
 
@@ -60,7 +72,7 @@ export default function CloneNotice() {
                         {", built using Next.js, TypeScript, and Tailwind CSS, and meant for learning and portfolio purposes."}
                     </p>
                     <p className="mt-[20px]">
-                        {"It's a recreation of many of the pages of "}
+                        {"It's a recreation (development still in progress) of the "}
                         <Link href="https://ena.supply/templates/tommas-quinn" target="_blank" className="font-semibold [tracking-[-.03em] transition-opacity duration-500 hover:opacity-40">
                             TommasQuinn Framer Portfolio Template
                         </Link>
