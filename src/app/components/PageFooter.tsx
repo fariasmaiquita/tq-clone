@@ -41,11 +41,10 @@ export default function PageFooter() {
                     &copy; T.Q.C {new Date().getFullYear()}
                 </div>
                 <div>
-                    <span>Cloned by </span>
-                    <Link href="https://dribbble.com/fmaiquita" target="_blank" className="transition-colors duration-500 hover:text-black">
-                        Farias Maiquita
-                    </Link>
-                    <span> | </span>
+                    <button className="clone-notice-btn transition-colors duration-500 hover:text-black cursor-pointer">
+                        About this site
+                    </button>
+                    <span> &bull; </span>
                     <Link href="https://ena.supply/" target="_blank" className="transition-colors duration-500 hover:text-black">
                         Originally made by ena
                     </Link>
