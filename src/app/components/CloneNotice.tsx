@@ -10,7 +10,7 @@ export default function CloneNotice() {
     const scrollYRef = useRef<number>(0);
     const cookieCloneKey = "tqc_clone_notice_okayed";
 
-    const handleClick = (e: MouseEvent<HTMLDivElement>) => {
+    const handleDismissClick = (e: MouseEvent<HTMLDivElement>) => {
         const clickedTarget = e.target as HTMLElement;
         if (clickedTarget.matches(".dark-bg, .okay-btn, .okay-btn *")) {
 
@@ -46,7 +46,7 @@ export default function CloneNotice() {
     if (noticeHidden) return null;
 
     return (
-        <div onClick={handleClick} className={`dark-bg fixed inset-0 z-40 bg-black/80 flex justify-center items-center motion-duration-500 ${noticeDismissed ? "motion-opacity-out-0 motion-delay-300" : "motion-opacity-in-0"}`}>
+        <div onClick={handleDismissClick} className={`dark-bg fixed inset-0 z-40 bg-black/80 flex justify-center items-center motion-duration-500 ${noticeDismissed ? "motion-opacity-out-0 motion-delay-300" : "motion-opacity-in-0"}`}>
             <div className={`mx-auto rounded-[10px] bg-white px-[25px] py-[20px] w-[435px] max-w-[calc(100%_-_20px)] text-[14px] [tracking-[-.03em]  motion-duration-500 ${noticeDismissed ? "motion-opacity-out-0 motion-translate-y-out-[50px]" : "motion-opacity-in-0 motion-translate-y-in-[50px] motion-delay-300"}`}>
                 <div className="text-[20px] font-semibold leading-[1.04] [tracking-[-.03em]">
                     Heads up!
