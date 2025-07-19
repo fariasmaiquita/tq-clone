@@ -1,31 +1,3 @@
 @import "tailwindcss";
 
-@theme {
-    --animate-page-header: page-header .6s ease-out 0s forwards 1;
-    
-    @keyframes page-header {
-        0% {
-            opacity: 0;
-            transform: translate3d(0, -100px, 0);
-        }
-        100% {
-            opacity: 1;
-            transform: none;
-        }
-    }
-
-    --animate-page-content: page-content .6s ease-out .2s forwards 1;
-
-    @keyframes page-content {
-        0% {
-            opacity: 0;
-            transform: translate3d(0, -100px, 0);
-        }
-        100% {
-            opacity: 1;
-            transform: none;
-        }
-    }
-}
-
 @plugin "tailwindcss-motion";
