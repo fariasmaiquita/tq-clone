@@ -3,6 +3,7 @@
 import Link from "next/link";
 import {useState, useRef, useEffect} from "react";
 import { HeaderNavData } from "@/app/data/NavData";
+import {useBodyScrollLock} from "@/app/hooks/useBodyScrollLock";
 
 export default function PageHeader() {
     const [navOpened, setNavOpened] = useState<boolean>(false);
@@ -10,27 +11,12 @@ export default function PageHeader() {
     const headerRef = useRef<HTMLDivElement | null>(null);
     const scrollYRef = useRef<number>(0);
 
-    useEffect(() => {
-        const body = document.body;
-
-        if (navOpened) {
+    const navBtnClicked = () => {
+        if (!navOpened) {
             scrollYRef.current = window.scrollY;
-            body.style.position = 'fixed';
-            body.style.top = `-${scrollYRef.current}px`;
-            body.style.width = '100%';
-        } else {
-            body.style.position = '';
-            body.style.top = '';
-            body.style.width = '';
-            window.scrollTo(0, scrollYRef.current);
         }
-
-        return () => {
-            body.style.position = '';
-            body.style.top = '';
-            body.style.width = '';
-        };
-    }, [navOpened]);
+        setNavOpened(!navOpened);
+    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -58,6 +44,8 @@ export default function PageHeader() {
             setIsOverBgImage(overBgImage);
         };
 
+        scrollYRef.current = window.scrollY;
+
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleScroll);
         handleScroll();
@@ -67,6 +55,8 @@ export default function PageHeader() {
             window.removeEventListener('resize', handleScroll);
         };
     }, []);
+
+    useBodyScrollLock(navOpened, scrollYRef);
 
     return (
         <header className="max-[1200px]:min-[810px]:h-[58px] max-[810px]:h-[49px]">
@@ -93,12 +83,7 @@ export default function PageHeader() {
                         </div>
                     </div>
                 </nav>
-                <button onClick={() => {
-                    if (!navOpened) {
-                        scrollYRef.current = window.scrollY;
-                    }
-                    setNavOpened(!navOpened);
-                }} className="relative justify-self-end cursor-pointer min-[810px]:hidden grid overflow-hidden">
+                <button onClick={navBtnClicked} className="relative justify-self-end cursor-pointer min-[810px]:hidden grid overflow-hidden">
                     <span className={`col-start-1 row-start-1 transform transition-transform ease-in-out duration-500 ${navOpened ? "-translate-y-full" : "none"}`}>
                         Menu
                     </span>

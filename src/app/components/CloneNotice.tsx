@@ -1,11 +1,13 @@
 'use client';
 
 import Link from "next/link";
-import { MouseEvent, useEffect, useState } from "react";
+import {MouseEvent, useEffect, useRef, useState} from "react";
+import {useBodyScrollLock} from "@/app/hooks/useBodyScrollLock";
 
 export default function CloneNotice() {
     const [noticeDismissed, setNoticeDismissed] = useState<boolean>(true);
     const [noticeHidden, setNoticeHidden] = useState<boolean>(true);
+    const scrollYRef = useRef<number>(0);
     const cookieCloneKey = "tqc_clone_notice_okayed";
 
     const handleClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -26,18 +28,20 @@ export default function CloneNotice() {
         }
     };
 
-
     useEffect(() => {
         const hasCloneCookie = () => {
-            // return false; // temp for debugging
             return document.cookie.split(';').some(item => item.trim().startsWith(`${cookieCloneKey}=`));
         }
+
+        scrollYRef.current = window.scrollY
 
         if (!hasCloneCookie()) {
             setNoticeDismissed(false);
             setNoticeHidden(false);
         }
     }, []);
+
+    useBodyScrollLock(!noticeDismissed, scrollYRef);
 
     if (noticeHidden) return null;
 
