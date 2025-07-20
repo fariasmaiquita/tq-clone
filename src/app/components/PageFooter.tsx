@@ -3,7 +3,7 @@ import {FooterNavData} from "@/app/data/NavData";
 
 export default function PageFooter() {
     return (
-        <footer className="p-[20px] max-[810px]:px-[15px] border-t border-t-black/10">
+        <footer className="p-[20px] max-[810px]:px-[15px] border-t border-t-black/10 motion-translate-y-in-[-100px] motion-opacity-in-0 motion-duration-700 motion-delay-600">
             <div className="grid min-[810px]:grid-cols-3 grid-cols-1 gap-x-[10px] gap-y-[60px]">
                 <div className="text-[18px] tracking-[-.03em] font-semibold">
                     T.Q.C
