@@ -35,7 +35,7 @@ export default function WorkPageLayout({ children }: Readonly<{children: ReactNo
                         {validViews.map((item, index) => {
                             return (
                                 <span key={index}>
-                                    <Link href={`/work/view/${item}/${catg_id}`} className={`transition-opacity duration-500 hover:opacity-40 ${item == view ? "opacity-40" : ""}`}>
+                                    <Link href={`/work/view/${item}/${catg_id ? catg_id : ""}`} className={`transition-opacity duration-500 hover:opacity-40 ${item == view ? "opacity-40" : ""}`}>
                                         {item}
                                     </Link>
                                     <span>
