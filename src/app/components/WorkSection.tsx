@@ -30,6 +30,8 @@ export default function WorkSection() {
             </div>
             <div className="min-[810px]:mt-[40px] mt-[20px] grid min-[810px]:grid-cols-3 grid-cols-1 gap-x-[20px] min-[810px]:gap-y-[40px] gap-y-[20px]">
                 {LatestWorkData.map((work, workIndex) => {
+                    if (!work) return;
+
                     const aspectRatios = {
                         "1": "aspect-square",
                         "4/3": "aspect-4/3",
