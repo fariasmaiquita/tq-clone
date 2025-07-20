@@ -6,18 +6,15 @@ import UpdatesSection from "@/app/components/UpdatesSection";
 import CTASection from "@/app/components/CTASection";
 import PageFooter from "@/app/components/PageFooter";
 
-export default function Home() {
+export default function HomePage() {
     return (
-        <div className="motion-translate-y-in-[-100px] motion-opacity-in-0 motion-duration-700 motion-delay-300">
-            <main>
-                <HeroSection />
-                <AboutSection />
-                <WorkSection />
-                <CapabilitiesSection />
-                <UpdatesSection />
-                <CTASection />
-            </main>
-            <PageFooter />
-        </div>
+        <main className="motion-translate-y-in-[-100px] motion-opacity-in-0 motion-duration-700 motion-delay-300">
+            <HeroSection />
+            <AboutSection />
+            <WorkSection />
+            <CapabilitiesSection />
+            <UpdatesSection />
+            <CTASection />
+        </main>
     );
 }
