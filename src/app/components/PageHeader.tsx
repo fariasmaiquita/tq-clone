@@ -4,12 +4,15 @@ import Link from "next/link";
 import {useState, useRef, useEffect} from "react";
 import { HeaderNavData } from "@/app/data/NavData";
 import {useBodyScrollLock} from "@/app/hooks/useBodyScrollLock";
+import { usePathname } from 'next/navigation';
 
 export default function PageHeader() {
     const [navOpened, setNavOpened] = useState<boolean>(false);
     const [isOverBgImage, setIsOverBgImage] = useState<boolean>(true);
     const headerRef = useRef<HTMLDivElement | null>(null);
     const scrollYRef = useRef<number>(0);
+    const [applyHeight, setApplyHeight] = useState<boolean>(false);
+    const pathname = usePathname();
 
     const navBtnClicked = () => {
         if (!navOpened) {
@@ -17,6 +20,19 @@ export default function PageHeader() {
         }
         setNavOpened(!navOpened);
     }
+
+    const updateApplyHeight = () => {
+        const firstSection = document.querySelector("main > :first-child");
+        if (firstSection && firstSection.classList.contains("has-bg-img")) {
+            setApplyHeight(true);
+        } else {
+            setApplyHeight(false);
+        }
+    }
+
+    useEffect(() => {
+        updateApplyHeight();
+    }, [pathname]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -44,6 +60,7 @@ export default function PageHeader() {
             setIsOverBgImage(overBgImage);
         };
 
+        updateApplyHeight();
         scrollYRef.current = window.scrollY;
 
         window.addEventListener('scroll', handleScroll);
@@ -59,7 +76,7 @@ export default function PageHeader() {
     useBodyScrollLock(navOpened, scrollYRef);
 
     return (
-        <header className="max-[1200px]:min-[810px]:h-[58px] max-[810px]:h-[49px]">
+        <header className={`${applyHeight ? "max-[1200px]:min-[810px]:h-[58px] max-[810px]:h-[49px]" : "h-0"} transition-all duration-500`}>
             <div ref={headerRef} className={`motion-translate-y-in-[-100px] motion-opacity-in-0 motion-duration-700 isolate fixed z-30 inset-x-0 top-0 min-[810px]:px-[20px] px-[15px] min-[810px]:h-[58px] h-[49px] grid items-center min-[1200px]:grid-cols-3 grid-cols-2 gap-[20px] font-semibold min-[810px]:text-[18px] text-[14px] tracking-[-0.03em] max-[1200px]:bg-white ${isOverBgImage ? "min-[1200px]:text-white" : ""}`}>
                 <div className={`bg-white fixed -z-10 inset-x-0 h-[58px] transition-transform ease-in-out duration-500 ${isOverBgImage ? "min-[1200px]:-translate-y-full" : ""} max-[1200px]:-translate-y-full`}></div>
                 <div className="">
