@@ -11,72 +11,80 @@ export const HeroWorkData:HeroWorkDataProps = [
     { lgMediaSrc: "/img/work/tqc-work-08-1500w.avif", smMediaSrc: "/img/work/tqc-work-08-512w.avif", mediaType: "image", url: "/work/8" }
 ];
 
-type WorkDataProps = {
+export const WorkCatgData: (string | undefined)[] = [
+    undefined, "Digital", "Print", "Motion", "Creative Direction", "Strategy", "Photography", "Identity", "Campaign",
+];
+
+export const MainWorkCatgData: (string | undefined)[] = WorkCatgData.slice(0, 5);
+
+export type WorkDataProps = ({
     title: string,
     description: string,
     aspectRatio: "1" | "4/3" | "16/9",
     mediaType: "image" | "video",
-    mediaSrc: { largest: string, small: string }
-}[];
+    mediaSrc: { largest: string, small: string },
+    categories: number[]
+} | undefined)[];
 
 export const WorkData: WorkDataProps = [
+    undefined,
     {
-        title: "Velvo", description: "Innovative elegance", aspectRatio: "1", mediaType: "image", mediaSrc: {
+        title: "Velvo", description: "Innovative elegance", categories: [2, 5], aspectRatio: "1", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-01-2000w.avif",
             small: "/img/work/tqc-work-01-512w.avif"
         }
     }, {
-        title: "TWYG", description: "Est. 100 million years ago", aspectRatio: "16/9", mediaType: "image", mediaSrc: {
+        title: "TWYG", description: "Est. 100 million years ago", categories: [2, 6], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-02-1500w.avif",
             small: "/img/work/tqc-work-02-512w.avif"
         }
     }, {
-        title: "Levi's", description: "Freedom to Move", aspectRatio: "4/3", mediaType: "video", mediaSrc: {
+        title: "Levi's", description: "Freedom to Move", categories: [4], aspectRatio: "4/3", mediaType: "video", mediaSrc: {
             largest: "/img/work/tqc-work-03-1920w.mp4",
             small: "/img/work/tqc-work-03-800w.mp4"
         }
     }, {
-        title: "Adidas", description: "The new original", aspectRatio: "16/9", mediaType: "image", mediaSrc: {
+        title: "Adidas", description: "The new original", categories: [3, 7], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-04-1500w.avif",
             small: "/img/work/tqc-work-04-512w.avif"
         }
     }, {
-        title: "Jacquemus", description: "Bold in Every Detail", aspectRatio: "1", mediaType: "video", mediaSrc: {
+        title: "Jacquemus", description: "Bold in Every Detail", categories: [1, 8], aspectRatio: "1", mediaType: "video", mediaSrc: {
             largest: "/img/work/tqc-work-05-2000w.mp4",
             small: "/img/work/tqc-work-05-1500w.mp4"
         }
     }, {
-        title: "Hermès", description: "Gifts for her", aspectRatio: "4/3", mediaType: "image", mediaSrc: {
+        title: "Hermès", description: "Gifts for her", categories: [2, 5], aspectRatio: "4/3", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-06-1500w.avif",
             small: "/img/work/tqc-work-06-512w.avif"
         }
     }, {
-        title: "Nike Swim", description: "In Every Element", aspectRatio: "1", mediaType: "image", mediaSrc: {
+        title: "Nike Swim", description: "In Every Element", categories: [3, 7], aspectRatio: "1", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-07-1500w.avif",
             small: "/img/work/tqc-work-07-512w.avif"
         }
     }, {
-        title: "Casio", description: "Precision in Motion", aspectRatio: "16/9", mediaType: "image", mediaSrc: {
+        title: "Casio", description: "Precision in Motion", categories: [1], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-08-1500w.avif",
             small: "/img/work/tqc-work-08-512w.avif"
         }
     }, {
-        title: "Louis Vuitton", description: "Concept Store '24", aspectRatio: "4/3", mediaType: "image", mediaSrc: {
+        title: "Louis Vuitton", description: "Concept Store '24", categories: [4, 7], aspectRatio: "4/3", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-09-1440w.avif",
             small: "/img/work/tqc-work-09-512w.avif",
         }
     }, {
-        title: "Loro Piana", description: "Quiet Luxury", aspectRatio: "16/9", mediaType: "image", mediaSrc: {
+        title: "Loro Piana", description: "Quiet Luxury", categories: [1, 7], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-10-1500w.avif",
             small: "/img/work/tqc-work-10-512w.avif"
         }
     }, {
-        title: "Versace", description: "Bold by design", aspectRatio: "1", mediaType: "image", mediaSrc: {
+        title: "Versace", description: "Bold by design", categories: [3, 7], aspectRatio: "1", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-11-1500w.avif",
             small: "/img/work/tqc-work-11-512w.avif"
         }
     }, {
-        title: "Rimowa", description: "A new way to travel", aspectRatio: "4/3", mediaType: "image", mediaSrc: {
+        title: "Rimowa", description: "A new way to travel", categories: [4, 7], aspectRatio: "4/3", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-12-1500w.avif",
             small: "/img/work/tqc-work-12-512w.avif"
         }
