@@ -5,16 +5,17 @@ import FadeInVideo from "@/app/components/FadeInVideo";
 import {notFound} from "next/navigation";
 
 interface WorkViewPageProps {
-    params: {
+    params: Promise<{
         view: "grid" | "list",
         catgId: string
-    };
+    }>;
 }
 
-export default function WorkViewPage({ params }: WorkViewPageProps) {
-    const view = params.view;
+export default async function WorkViewPage({ params }: WorkViewPageProps) {
+    const pageParams = await params;
+    const view = pageParams.view;
     const viewOpts = ["grid", "list"];
-    const catgId = parseInt(params.catgId);
+    const catgId = parseInt(pageParams.catgId);
 
     const getMedia = (mediaType: "image" | "video", mediaSrc: string, sizes: string) => {
         const className = "transform transition-transform duration-1000 ease-out group-hover:scale-104";

@@ -4,8 +4,9 @@ import { ThreeMoreWorkData, WorkData, WorkDataProps } from "@/app/data/WorkData"
 import {notFound} from "next/navigation";
 import FadeInVideo from "@/app/components/FadeInVideo";
 
-export default function WorkItemPage({ params }: { params: { workId: string } }) {
-    const workId = parseInt(params.workId);
+export default async function WorkItemPage({ params }: { params: Promise<{ workId: string }> }) {
+    const pageParams = await params;
+    const workId = parseInt(pageParams.workId);
 
     if (!WorkData[workId]) {
         return notFound();
