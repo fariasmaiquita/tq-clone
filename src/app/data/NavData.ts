@@ -1,5 +1,5 @@
 export const HeaderNavData = [
-    { href: "/work/view/grid", text: "Work" },
+    { href: "/work/view/grid/0", text: "Work" },
     { href: "", text: "Studio" },
     { href: "", text: "News" },
     { href: "", text: "Careers" },
