@@ -12,7 +12,7 @@ export default function HomeAbout() {
                         We’re a creative studio crafting experiences that captivate and inspire.
                     </span>
                 </p>
-                <Link href="" className="mt-[20px] text-[14px] tracking-[-.03em] font-semibold leading-[18px] relative inline-block group">
+                <Link href="" className="mt-[20px] font-semibold leading-[18px] relative inline-block group">
                     About us
                     <div className="absolute bottom-0 w-full border-b origin-right transition-transform duration-500 ease-in-out group-hover:scale-x-0"></div>
                 </Link>
