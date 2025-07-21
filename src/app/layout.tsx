@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import React from "react";
+import { ReactNode } from "react";
 import { switzer } from "@/app/fonts/fonts";
 import PageHeader from "@/app/components/PageHeader";
 import CloneNotice from "@/app/components/CloneNotice";
@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     }
 };
 
-export default function RootLayout({ children }: Readonly<{children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{children: ReactNode }>) {
     return (
         <html lang="en">
-            <body className={`leading-none ${switzer.className}`}>
+            <body className={`leading-none text-[14px] tracking-[-.03em] ${switzer.className}`}>
                 <PageHeader />
                 {children}
                 <PageFooter />
