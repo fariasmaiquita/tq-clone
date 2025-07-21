@@ -1,6 +1,6 @@
 import FadeInImage from "@/app/components/FadeInImage";
 import Link from "next/link";
-import { ThreeMoreWorkData, WorkData, WorkDataProps } from "@/app/data/WorkData";
+import { ThreeMoreWorkData, WorkData, WorkDataProps, WorkCatgData } from "@/app/data/WorkData";
 import {notFound} from "next/navigation";
 import FadeInVideo from "@/app/components/FadeInVideo";
 
@@ -12,7 +12,11 @@ export default async function WorkItemPage({ params }: { params: Promise<{ workI
         return notFound();
     }
 
+    const workItemData = WorkData[workId];
     const moreWorkData: WorkDataProps = ThreeMoreWorkData(workId);
+    const workItemCatgs: (string | undefined)[] = workItemData?.categories.map((item) => {
+        return WorkCatgData[item];
+    });
 
     const getMedia = (mediaType: "image" | "video", mediaSrc: string, sizes: string) => {
         const className = "transform transition-transform duration-1000 ease-out group-hover:scale-104";
@@ -32,10 +36,10 @@ export default async function WorkItemPage({ params }: { params: Promise<{ workI
             <div className="pt-[140px] min-[810px]:pb-[200px] pb-[150px] min-[810px]:px-[20px] px-[15px]">
                 <div className="flex max-[810px]:flex-col gap-x-[10px] gap-y-[1px] min-[810px]:text-[48px] text-[38px] tracking-[-.03em]">
                     <div className="font-semibold">
-                        Velvo
+                        {workItemData?.title}
                     </div>
                     <div className="opacity-40">
-                        Innovative elegance
+                        {workItemData?.description}
                     </div>
                 </div>
                 <div className="mt-[125px] max-w-[800px] grid min-[810px]:grid-cols-3 grid-cols-1 gap-x-[10px] gap-y-[5px] font-semibold">
@@ -44,7 +48,7 @@ export default async function WorkItemPage({ params }: { params: Promise<{ workI
                             Client:
                         </div>
                         <div>
-                            Velvo
+                            {workItemData?.title}
                         </div>
                     </div>
                     <div className="flex gap-[5px]">
@@ -52,7 +56,7 @@ export default async function WorkItemPage({ params }: { params: Promise<{ workI
                             Year:
                         </div>
                         <div>
-                            2024
+                            {workItemData?.year}
                         </div>
                     </div>
                     <div className="flex gap-[5px]">
@@ -60,37 +64,37 @@ export default async function WorkItemPage({ params }: { params: Promise<{ workI
                             Type:
                         </div>
                         <div>
-                            Print, Strategy
+                            {workItemCatgs.join(', ')}
                         </div>
                     </div>
                 </div>
                 <div className="mt-[20px] aspect-3/2 bg-black/40 relative rounded-[15px] overflow-hidden">
-                    <FadeInImage src="/img/work/tqc-work-01-2000w.avif" sizes="100vw" alt="" />
+                    {workItemData ? getMedia(workItemData.mediaType, workItemData.mediaSrc.largest, "100vw") : null}
                 </div>
                 <div className="grid min-[810px]:grid-cols-2 grid-cols-1 gap-[20px] mt-[20px]">
                     <div className="bg-black/40 relative aspect-[0.75] rounded-[15px] overflow-hidden">
-                        <FadeInImage src="/img/work/tqc-work-01-2000w.avif" sizes="(min-width: 810px) 50vw, 100vw" alt="" />
+                        <FadeInImage src="/img/work/details/tqc-work-details-01-1500w.avif" sizes="(min-width: 810px) 50vw, 100vw" alt="" />
                     </div>
                     <div className="bg-black/40 relative aspect-[0.75] rounded-[15px] overflow-hidden">
-                        <FadeInImage src="/img/work/tqc-work-01-2000w.avif" sizes="(min-width: 810px) 50vw, 100vw" alt="" />
+                        <FadeInImage src="/img/work/details/tqc-work-details-02-1500w.svg" sizes="(min-width: 810px) 50vw, 100vw" alt="" />
                     </div>
                 </div>
                 <div className="min-[810px]:py-[80px] py-[60px] min-[1200px]:text-[48px] min-[810px]:text-[38px] text-[28px] tracking-[-.03em] font-semibold opacity-40 min-[810px]:max-w-[920px] max-w-[420px]">
                     A new standard in premium performance and design, bringing advanced technology to elevate every space.
                 </div>
                 <div className="aspect-3/2 bg-black/40 relative rounded-[15px] overflow-hidden">
-                    <FadeInImage src="/img/work/tqc-work-01-2000w.avif" sizes="100vw" alt="" />
+                    <FadeInImage src="/img/work/details/tqc-work-details-03-2000w.avif" sizes="100vw" alt="" />
                 </div>
                 <div className="grid min-[810px]:grid-cols-2 grid-cols-1 gap-[20px] mt-[20px]">
                     <div className="bg-black/40 relative aspect-square rounded-[15px] overflow-hidden">
-                        <FadeInImage src="/img/work/tqc-work-01-2000w.avif" sizes="(min-width: 810px) 50vw, 100vw" alt="" />
+                        <FadeInImage src="/img/work/details/tqc-work-details-04-1500w.svg" sizes="(min-width: 810px) 50vw, 100vw" alt="" />
                     </div>
                     <div className="bg-black/40 relative aspect-square rounded-[15px] overflow-hidden">
-                        <FadeInImage src="/img/work/tqc-work-01-2000w.avif" sizes="(min-width: 810px) 50vw, 100vw" alt="" />
+                        <FadeInImage src="/img/work/details/tqc-work-details-05-1500w.avif" sizes="(min-width: 810px) 50vw, 100vw" alt="" />
                     </div>
                 </div>
                 <div className="mt-[20px] aspect-3/2 bg-black/40 relative rounded-[15px] overflow-hidden">
-                    <FadeInImage src="/img/work/tqc-work-01-2000w.avif" sizes="100vw" alt="" />
+                    <FadeInImage src="/img/work/details/tqc-work-details-06-2000w.avif" sizes="100vw" alt="" />
                 </div>
                 <div className="mt-[60px] min-[810px]:grid min-[1200px]:grid-cols-3 grid-cols-2 gap-[20px]">
                     <div className="min-[1200px]:col-start-3 col-start-2">
