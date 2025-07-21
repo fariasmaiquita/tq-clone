@@ -1,9 +1,9 @@
 'use client';
 
 import Link from "next/link";
-import {useState, useRef, useEffect} from "react";
+import { useState, useRef, useEffect } from "react";
 import { HeaderNavData } from "@/app/data/NavData";
-import {useBodyScrollLock} from "@/app/hooks/useBodyScrollLock";
+import { useBodyScrollLock } from "@/app/hooks/useBodyScrollLock";
 import { usePathname } from 'next/navigation';
 
 export default function PageHeader() {
