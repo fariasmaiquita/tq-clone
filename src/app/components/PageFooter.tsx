@@ -54,15 +54,15 @@ export default function PageFooter() {
                     </Link>
                 </div>
                 <div>
-                    <Link href="" className="transition-colors duration-500 hover:text-black">
+                    <Link href="https://www.linkedin.com/in/fariasmaiquita" target="_blank" className="transition-colors duration-500 hover:text-black">
                         Instagram
                     </Link>
                     <span>, </span>
-                    <Link href="" className="transition-colors duration-500 hover:text-black">
+                    <Link href="https://www.linkedin.com/in/fariasmaiquita" target="_blank" className="transition-colors duration-500 hover:text-black">
                         X.com
                     </Link>
                     <span>, </span>
-                    <Link href="" className="transition-colors duration-500 hover:text-black">
+                    <Link href="https://www.linkedin.com/in/fariasmaiquita" target="_blank" className="transition-colors duration-500 hover:text-black">
                         Linkedin
                     </Link>
                 </div>
