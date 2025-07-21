@@ -3,7 +3,7 @@ import { CapabilitiesData } from "@/app/data/CapabilitiesData";
 import FadeInImage from "@/app/components/FadeInImage";
 import {useState} from "react";
 
-export default function CapabilitiesSection() {
+export default function HomeCapabilities() {
     const [currSlide, setCurrSlide] = useState<number>(0);
 
     return (

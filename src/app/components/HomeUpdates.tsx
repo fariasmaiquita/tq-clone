@@ -5,7 +5,7 @@ import Link from "next/link";
 import { LatestNewsData } from "@/app/data/NewsData";
 import FadeInImage from "@/app/components/FadeInImage";
 
-export default function UpdatesSection() {
+export default function HomeUpdates() {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: true,
         slidesToScroll: 1,

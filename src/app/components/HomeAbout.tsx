@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function AboutSection() {
+export default function HomeAbout() {
     return (
         <section className="min-[810px]:px-[20px] px-[15px] pt-[60px] min-[810px]:pb-[200px] pb-[150px] min-[1200px]:grid grid-cols-3 gap-[20px]">
             <div className="col-start-2 col-span-2">

@@ -3,7 +3,7 @@ import { LatestWorkData } from "@/app/data/WorkData";
 import FadeInImage from "@/app/components/FadeInImage";
 import FadeInVideo from "@/app/components/FadeInVideo";
 
-export default function WorkSection() {
+export default function HomeWork() {
     const getMedia = (mediaType: "image" | "video", mediaSrc: string) => {
         const className = "transform transition-transform duration-1000 ease-out group-hover:scale-104";
         if (mediaType == "image") {

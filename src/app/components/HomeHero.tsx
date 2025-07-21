@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { HeroWorkData } from "@/app/data/WorkData";
 
-export default function HeroSection() {
+export default function HomeHero() {
     const [currSlide, setCurrSlide] = useState<number>(0);
     const router = useRouter();
 
