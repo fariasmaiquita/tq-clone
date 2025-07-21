@@ -4,13 +4,7 @@ import { ThreeMoreWorkData, WorkData, WorkDataProps } from "@/app/data/WorkData"
 import {notFound} from "next/navigation";
 import FadeInVideo from "@/app/components/FadeInVideo";
 
-interface WorkItemPageProps {
-    params: {
-        workId: string
-    };
-}
-
-export default function WorkItemPage({ params }: WorkItemPageProps) {
+export default function WorkItemPage({ params }: { params: { workId: string } }) {
     const workId = parseInt(params.workId);
 
     if (!WorkData[workId]) {
