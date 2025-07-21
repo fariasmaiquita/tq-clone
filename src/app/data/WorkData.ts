@@ -23,68 +23,69 @@ export type WorkDataProps = ({
     aspectRatio: "1" | "4/3" | "16/9",
     mediaType: "image" | "video",
     mediaSrc: { largest: string, small: string },
-    categories: number[]
+    categories: number[],
+    year: number
 } | undefined)[];
 
 export const WorkData: WorkDataProps = [
     undefined,
     {
-        title: "Velvo", description: "Innovative elegance", categories: [2, 5], aspectRatio: "1", mediaType: "image", mediaSrc: {
+        title: "Velvo", description: "Innovative elegance", year: 2024, categories: [2, 5], aspectRatio: "1", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-01-2000w.avif",
             small: "/img/work/tqc-work-01-512w.avif"
         }
     }, {
-        title: "TWYG", description: "Est. 100 million years ago", categories: [2, 6], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
+        title: "TWYG", description: "Est. 100 million years ago", year: 2024, categories: [2, 6], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-02-1500w.avif",
             small: "/img/work/tqc-work-02-512w.avif"
         }
     }, {
-        title: "Levi's", description: "Freedom to Move", categories: [4], aspectRatio: "4/3", mediaType: "video", mediaSrc: {
+        title: "Levi's", description: "Freedom to Move", year: 2024, categories: [4], aspectRatio: "4/3", mediaType: "video", mediaSrc: {
             largest: "/img/work/tqc-work-03-1920w.mp4",
             small: "/img/work/tqc-work-03-800w.mp4"
         }
     }, {
-        title: "Adidas", description: "The new original", categories: [3, 7], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
+        title: "Adidas", description: "The new original", year: 2024, categories: [3, 7], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-04-1500w.avif",
             small: "/img/work/tqc-work-04-512w.avif"
         }
     }, {
-        title: "Jacquemus", description: "Bold in Every Detail", categories: [1, 8], aspectRatio: "1", mediaType: "video", mediaSrc: {
+        title: "Jacquemus", description: "Bold in Every Detail", year: 2024, categories: [1, 8], aspectRatio: "1", mediaType: "video", mediaSrc: {
             largest: "/img/work/tqc-work-05-2000w.mp4",
             small: "/img/work/tqc-work-05-1500w.mp4"
         }
     }, {
-        title: "Hermès", description: "Gifts for her", categories: [2, 5], aspectRatio: "4/3", mediaType: "image", mediaSrc: {
+        title: "Hermès", description: "Gifts for her", year: 2023, categories: [2, 5], aspectRatio: "4/3", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-06-1500w.avif",
             small: "/img/work/tqc-work-06-512w.avif"
         }
     }, {
-        title: "Nike Swim", description: "In Every Element", categories: [3, 7], aspectRatio: "1", mediaType: "image", mediaSrc: {
+        title: "Nike Swim", description: "In Every Element", year: 2023, categories: [3, 7], aspectRatio: "1", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-07-1500w.avif",
             small: "/img/work/tqc-work-07-512w.avif"
         }
     }, {
-        title: "Casio", description: "Precision in Motion", categories: [1], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
+        title: "Casio", description: "Precision in Motion", year: 2023, categories: [1], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-08-1500w.avif",
             small: "/img/work/tqc-work-08-512w.avif"
         }
     }, {
-        title: "Louis Vuitton", description: "Concept Store '24", categories: [4, 7], aspectRatio: "4/3", mediaType: "image", mediaSrc: {
+        title: "Louis Vuitton", description: "Concept Store '24", year: 2023, categories: [4, 7], aspectRatio: "4/3", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-09-1440w.avif",
             small: "/img/work/tqc-work-09-512w.avif",
         }
     }, {
-        title: "Loro Piana", description: "Quiet Luxury", categories: [1, 7], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
+        title: "Loro Piana", description: "Quiet Luxury", year: 2022, categories: [1, 7], aspectRatio: "16/9", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-10-1500w.avif",
             small: "/img/work/tqc-work-10-512w.avif"
         }
     }, {
-        title: "Versace", description: "Bold by design", categories: [3, 7], aspectRatio: "1", mediaType: "image", mediaSrc: {
+        title: "Versace", description: "Bold by design", year: 2022, categories: [3, 7], aspectRatio: "1", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-11-1500w.avif",
             small: "/img/work/tqc-work-11-512w.avif"
         }
     }, {
-        title: "Rimowa", description: "A new way to travel", categories: [4, 7], aspectRatio: "4/3", mediaType: "image", mediaSrc: {
+        title: "Rimowa", description: "A new way to travel", year: 2022, categories: [4, 7], aspectRatio: "4/3", mediaType: "image", mediaSrc: {
             largest: "/img/work/tqc-work-12-1500w.avif",
             small: "/img/work/tqc-work-12-512w.avif"
         }
