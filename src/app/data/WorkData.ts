@@ -92,3 +92,16 @@ export const WorkData: WorkDataProps = [
 ]
 
 export const LatestWorkData: WorkDataProps = WorkData.slice(0, 6);
+
+export const ThreeMoreWorkData = (workId: number): WorkDataProps => {
+    const WorkDataSubset: WorkDataProps = [];
+    let totalItems = 0;
+
+    do {
+        workId = (workId < WorkData.length - 1) ? workId + 1 : 1;
+        WorkDataSubset[workId] = WorkData[workId];
+        totalItems++;
+    } while (totalItems < 3);
+
+    return WorkDataSubset;
+}
