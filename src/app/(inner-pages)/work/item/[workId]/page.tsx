@@ -7,12 +7,12 @@ import FadeInVideo from "@/app/components/FadeInVideo";
 export default async function WorkItemPage({ params }: { params: Promise<{ workId: string }> }) {
     const pageParams = await params;
     const workId = parseInt(pageParams.workId);
+    const workItemData = WorkData[workId];
 
-    if (!WorkData[workId]) {
+    if (!workItemData) {
         return notFound();
     }
 
-    const workItemData = WorkData[workId];
     const moreWorkData: WorkDataProps = ThreeMoreWorkData(workId);
     const workItemCatgs: (string | undefined)[] = workItemData?.categories.map((item) => {
         return WorkCatgData[item];
