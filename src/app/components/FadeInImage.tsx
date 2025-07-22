@@ -23,7 +23,7 @@ export default function FadeInImage({ className = '', showPulse = true, ...props
     return (
         <>
             {loadingPulseBg(showPulse)}
-            <Image fill={true} {...props} onLoad={() => setLoaded(true)} className={`object-cover transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'} ${className}`} />
+            <Image fill={true} {...props} onLoad={() => setLoaded(true)} className={`object-cover transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'} ${className}`} unoptimized />
         </>
     );
 }
