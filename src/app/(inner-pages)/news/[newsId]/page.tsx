@@ -105,6 +105,7 @@ export default async function SingleNewsPage({ params }: { params: Promise<{ new
                 </div>
                 <div className="mt-[20px] flex max-[810px]:flex-col gap-x-[15px] gap-y-[20px]">
                     {moreNewsData.map((itemData, itemIndex) => {
+                        if (!itemData) return null;
                         const itemHref = `/news/${itemIndex}`;
                         return (
                             <div key={itemIndex} className="min-[810px]:w-[calc((100%-30px)/3)] w-full">
