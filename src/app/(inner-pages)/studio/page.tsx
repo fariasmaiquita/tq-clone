@@ -1,6 +1,7 @@
 import StudioHero from "@/app/components/StudioHero";
 import StudioIntro from "@/app/components/StudioIntro";
 import StudioTeam from "@/app/components/StudioTeam";
+import StudioBridge from "@/app/components/StudioBridge";
 
 export default function StudioPage() {
     return (
@@ -8,6 +9,7 @@ export default function StudioPage() {
             <StudioHero />
             <StudioIntro />
             <StudioTeam />
+            <StudioBridge />
         </main>
     )
 }
