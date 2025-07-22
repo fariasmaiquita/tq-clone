@@ -23,7 +23,7 @@ export default function HomeWork() {
                 <h2 className="min-[810px]:text-[40px] text-[28px] tracking-[-.03em] font-semibold">
                     Latest work
                 </h2>
-                <Link href="" className="text-[14px] tracking-[-.03em] font-semibold leading-[18px] relative group">
+                <Link href="/work/view/grid/0" className="font-semibold leading-[18px] relative group">
                     View All
                     <div className="absolute bottom-0 w-full border-b origin-left transition-transform duration-500 ease-in-out scale-x-0 group-hover:scale-x-100"></div>
                 </Link>
