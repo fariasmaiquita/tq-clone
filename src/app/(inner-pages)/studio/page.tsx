@@ -3,6 +3,7 @@ import StudioIntro from "@/app/components/StudioIntro";
 import StudioTeam from "@/app/components/StudioTeam";
 import StudioBridge from "@/app/components/StudioBridge";
 import StudioServices from "@/app/components/StudioServices";
+import StudioClients from "@/app/components/StudioClients";
 
 export default function StudioPage() {
     return (
@@ -12,6 +13,7 @@ export default function StudioPage() {
             <StudioTeam />
             <StudioBridge />
             <StudioServices />
+            <StudioClients />
         </main>
     )
 }
