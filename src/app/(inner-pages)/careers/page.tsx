@@ -2,6 +2,11 @@ import FadeInImage from "@/app/components/FadeInImage";
 import { ValuesData } from "@/app/data/CareersData";
 import CareerRoles from "@/app/components/CareerRoles";
 import HomeCTA from "@/app/components/HomeCTA";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Careers | T.Q.C"
+}
 
 export default function CareersPage() {
     return (

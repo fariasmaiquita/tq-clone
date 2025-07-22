@@ -5,6 +5,11 @@ import StudioBridge from "@/app/components/StudioBridge";
 import StudioServices from "@/app/components/StudioServices";
 import StudioClients from "@/app/components/StudioClients";
 import StudioCareers from "@/app/components/StudioCareers";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Studio | T.Q.C"
+}
 
 export default function StudioPage() {
     return (

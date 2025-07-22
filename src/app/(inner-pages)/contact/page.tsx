@@ -1,6 +1,11 @@
 import Link from "next/link";
 import FadeInImage from "@/app/components/FadeInImage";
 import {ContactData, LocationsData} from "@/app/data/ContactData";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Contact | T.Q.C"
+}
 
 export default function ContactPage() {
     return (

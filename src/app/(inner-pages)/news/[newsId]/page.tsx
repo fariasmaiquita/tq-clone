@@ -2,6 +2,11 @@ import { NewsData, ThreeMoreNewsData } from "@/app/data/NewsData";
 import { notFound } from "next/navigation";
 import FadeInImage from "@/app/components/FadeInImage";
 import Link from "next/link";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "News | T.Q.C"
+}
 
 export default async function SingleNewsPage({ params }: { params: Promise<{ newsId: string }> }) {
     const pageParams = await params;

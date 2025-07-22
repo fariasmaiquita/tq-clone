@@ -3,6 +3,11 @@ import Link from "next/link";
 import FadeInImage from "@/app/components/FadeInImage";
 import FadeInVideo from "@/app/components/FadeInVideo";
 import {notFound} from "next/navigation";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Work | T.Q.C"
+}
 
 interface WorkViewPageProps {
     params: Promise<{

@@ -3,6 +3,11 @@ import Link from "next/link";
 import { ThreeMoreWorkData, WorkData, WorkDataProps, WorkCatgData } from "@/app/data/WorkData";
 import {notFound} from "next/navigation";
 import FadeInVideo from "@/app/components/FadeInVideo";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Work | T.Q.C"
+}
 
 export default async function WorkItemPage({ params }: { params: Promise<{ workId: string }> }) {
     const pageParams = await params;

@@ -2,6 +2,11 @@ import { NewsData } from "@/app/data/NewsData";
 import Link from "next/link";
 import FadeInImage from "@/app/components/FadeInImage";
 import HomeCTA from "@/app/components/HomeCTA";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "News | T.Q.C"
+}
 
 export default function NewsPage() {
     return (
