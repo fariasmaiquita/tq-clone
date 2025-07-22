@@ -15,8 +15,6 @@ export default function HomeUpdates() {
     const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
     const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
-    // const UpdatesData = Array.from(Array(12).keys());
-
     return (
         <section className="min-[810px]:py-[200px] py-[150px]">
             <div className="px-[20px] flex justify-between items-end">
@@ -41,18 +39,20 @@ export default function HomeUpdates() {
                 <div className="embla" ref={emblaRef}>
                     <div className="flex items-stretch">
                         {LatestNewsData.map((itemData, itemIndex) => {
+                            if (!itemData) return null;
+                            const itemHref = `/news/${itemIndex}`;
                             return (
                                 <div key={itemIndex} className="grow-0 shrink-0 min-[810px]:basis-[calc((100%-20px)_/_3)] basis-[calc(250%_/_3_-_17.5px)] min-[810px]:pl-[20px] pl-[15px]">
-                                    <Link href="" className="block bg-black/40 aspect-4/3 relative rounded-[10px] overflow-hidden">
+                                    <Link href={itemHref} className="block bg-black/40 aspect-4/3 relative rounded-[10px] overflow-hidden">
                                         <FadeInImage src={itemData.imgSrc} sizes="(min-width: 810px) 33vw, 83vw" alt="" />
                                     </Link>
-                                    <Link href="" className="text-[14px] tracking-[-.03em] inline-flex flex-wrap gap-x-[5px] mt-[12px] opacity-40">
+                                    <Link href={itemHref} className="text-[14px] tracking-[-.03em] inline-flex flex-wrap gap-x-[5px] mt-[12px] opacity-40">
                                         <span>{itemData.category}</span>
                                         <span>/</span>
                                         <span>{itemData.date}</span>
                                     </Link>
                                     <br />
-                                    <Link href="" className="inline-block mt-[10px] pb-[30px] text-[22px] tracking-[-.03em] font-semibold transition-opacity duration-500 hover:opacity-40">
+                                    <Link href={itemHref} className="min-[810px]:max-w-[360px] max-w-[320px] inline-block mt-[10px] pb-[30px] min-[810px]:text-[22px] text-[18px] tracking-[-.03em] font-semibold transition-opacity duration-500 hover:opacity-40">
                                         {itemData.title}
                                     </Link>
                                 </div>
