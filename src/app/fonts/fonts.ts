@@ -11,6 +11,10 @@ export const switzer = localFont({
             weight: "500",
             style: "normal"
         }, {
+            path: "./Switzer-MediumItalic.woff2",
+            weight: "500",
+            style: "italic"
+        }, {
             path: "./Switzer-Semibold.woff2",
             weight: "600",
             style: "normal"
