@@ -33,6 +33,7 @@ export default function PageHeader() {
     useEffect(() => {
         updateApplyHeight();
         handleScroll();
+        setNavOpened(false);
     }, [pathname]);
 
     const handleScroll = () => {
