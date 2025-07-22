@@ -32,34 +32,35 @@ export default function PageHeader() {
 
     useEffect(() => {
         updateApplyHeight();
+        handleScroll();
     }, [pathname]);
 
+    const handleScroll = () => {
+        const header = headerRef.current;
+        if (!header) return;
+
+        const headerHeight = header.offsetHeight;
+        const headerTop = 0;
+        const headerBottom = headerTop + headerHeight;
+
+        const bgSections = document.querySelectorAll<HTMLElement>('.has-bg-img');
+
+        let overBgImage = false;
+
+        bgSections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const sectionTop = rect.top;
+            const sectionBottom = rect.bottom;
+
+            if (sectionTop < headerBottom && sectionBottom > headerTop) {
+                overBgImage = true;
+            }
+        });
+
+        setIsOverBgImage(overBgImage);
+    };
+
     useEffect(() => {
-        const handleScroll = () => {
-            const header = headerRef.current;
-            if (!header) return;
-
-            const headerHeight = header.offsetHeight;
-            const headerTop = 0;
-            const headerBottom = headerTop + headerHeight;
-
-            const bgSections = document.querySelectorAll<HTMLElement>('.has-bg-img');
-
-            let overBgImage = false;
-
-            bgSections.forEach((section) => {
-                const rect = section.getBoundingClientRect();
-                const sectionTop = rect.top;
-                const sectionBottom = rect.bottom;
-
-                if (sectionTop < headerBottom && sectionBottom > headerTop) {
-                    overBgImage = true;
-                }
-            });
-
-            setIsOverBgImage(overBgImage);
-        };
-
         updateApplyHeight();
         scrollYRef.current = window.scrollY;
 
