@@ -49,3 +49,16 @@ export const NewsData = [
 ];
 
 export const LatestNewsData = NewsData.slice(0, 6);
+
+export const ThreeMoreNewsData = (newsId: number) => {
+    const NewsDataSubset = [];
+    let totalItems = 0;
+
+    do {
+        newsId = (newsId < NewsData.length - 1) ? newsId + 1 : 1;
+        NewsDataSubset[newsId] = NewsData[newsId];
+        totalItems++;
+    } while (totalItems < 3);
+
+    return NewsDataSubset;
+}
