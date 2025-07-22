@@ -4,6 +4,7 @@ import StudioTeam from "@/app/components/StudioTeam";
 import StudioBridge from "@/app/components/StudioBridge";
 import StudioServices from "@/app/components/StudioServices";
 import StudioClients from "@/app/components/StudioClients";
+import StudioCareers from "@/app/components/StudioCareers";
 
 export default function StudioPage() {
     return (
@@ -14,6 +15,7 @@ export default function StudioPage() {
             <StudioBridge />
             <StudioServices />
             <StudioClients />
+            <StudioCareers />
         </main>
     )
 }
