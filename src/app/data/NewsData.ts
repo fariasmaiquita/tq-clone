@@ -1,11 +1,12 @@
 export const NewsData = [
+    undefined,
     {
         title: "How We Create Impactful Brand Identities Through Our Process",
         category: "Behance",
         date: "October 7, 2024",
         imgSrc: "/img/news/tqc-news-1.avif"
     }, {
-        title: "The Role of Color Theory in ",
+        title: "The Role of Color Theory in Brand Identity Development",
         category: "The Brand Identity",
         date: "October 19, 2024",
         imgSrc: "/img/news/tqc-news-2.avif"
